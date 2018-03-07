@@ -1,15 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import BootstrapVue from 'bootstrap-vue/dist/bootstrap-vue.esm'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import index from '@/components/index'
+import list from '@/components/list'
+import watch from '@/components/watch'
 
 Vue.use(Router)
+Vue.use(BootstrapVue);
+
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'index',
+      component: index
+    },
+    {
+      path: '/list',
+      name: 'list',
+      component: list
+    },
+    {
+      path: '/watch',
+      name: 'watch',
+      component: watch
     }
   ]
 })
+
