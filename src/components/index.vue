@@ -37,8 +37,6 @@
     </h1>
     <br>
       <p>Value: {{ form.search }}</p>
-    <br>
-    <br>
   </div>
 </template>
 
