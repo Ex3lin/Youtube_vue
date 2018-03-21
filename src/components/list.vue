@@ -1,46 +1,40 @@
 <template>
    <div class="list">
-     <b-navbar toggleable="md" type="dark" variant="danger">
+  <NavBarch></NavBarch>
+  <div class="container">
+      <div class="row">
+        <b-card v-for="item in vidlist" :title="item.snippet.title" :img-src="item.snippet.thumbnails.high.url" img-alt="Image" 
+        img-top tag="article" style="max-width: 20rem;" class="mb-2">
+          <p class="card-text">
+            {{item.snippet.description}} {{item.snippet.channelTitle}}
+          </p>
+          <router-link :to="{ name: 'watch', params: { video_aidi: item.id.videoId }} ">
+            <b-button variant="primary">Go to vidos</b-button>
+          </router-link>
+        </b-card>
+      </div>
+    </div> 
 
-  <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
-
-  <b-navbar-brand><router-link :to="{ name: 'index'}">TooYobe</router-link></b-navbar-brand>
-
-  <b-collapse is-nav id="nav_collapse">
-
-    <b-navbar-nav>
-      <b-nav-item><router-link :to="{ name: 'list'}">list</router-link></b-nav-item>
-      <b-nav-item><router-link :to="{ name: 'watch'}">watch</router-link></b-nav-item>
-    </b-navbar-nav>
-
-    <!-- Right aligned nav items -->
-    <b-navbar-nav class="ml-auto">
-
-      <b-nav-form>
-        <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
-        <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-      </b-nav-form>
-    </b-navbar-nav>
-
-  </b-collapse>
-</b-navbar>
-     {{msg}}
-     <br>
-     <router-link :to="{ name: 'index'}">index</router-link>
-     <br>
-     <router-link :to="{ name: 'watch'}">watch</router-link>
    </div>
 </template>
 
 <script>
+
+  import NavBarch from './index.vue'
 export default {
   name: 'list',
   data () {
     return {
-      msg: 'LIST'
+      msg: 'LIST',
+      vidlist: this.$route.params.items
     }
+  },
+  component:{
+    'NavBarch':NavBarch
   }
 }
+
+
 </script>
 
 <style scoped>

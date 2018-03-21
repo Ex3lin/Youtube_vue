@@ -29,7 +29,15 @@
       <router-link :to="{ name: 'index'}">index</router-link>
       <br>
       <router-link :to="{ name: 'list'}">list</router-link>
+      <iframe 
+      width="560" 
+      height="315" 
+      :src="'https://www.youtube.com/embed/' + videoid"
+      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+      </iframe>
+
    </div>
+
 </template>
 
 <script>
@@ -37,8 +45,13 @@ export default {
   name: 'watch',
   data () {
     return {
-      msg: 'PLAYER'
+      msg: 'PLAYER',
+      videoid: this.$route.params.video_aidi
     }
+  },
+  created: function()
+  {
+    
   }
 }
 </script>

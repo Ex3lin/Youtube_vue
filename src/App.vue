@@ -9,12 +9,6 @@
 export default {
   name: 'App'
 }
-function init () {
-  gapi.client.setApiKey("AIzaSyDlqPgqv2tk_eT");
-  gapi.client.load("youtube", "v3", function() {
-    //инициализируем подключение к YT  
-  })
-}
 </script>
 
 <style>
