@@ -1,16 +1,18 @@
 <template>
   <div class="index">
-    <b-navbar toggleable="md" type="dark" variant="danger">
+    <b-navbar toggleable="md" type="dark" variant="danger" sticky="true">
       <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
       <b-navbar-brand>
-        <router-link :to="{ name: 'index'}">TooYobe</router-link>
+        <router-link :to="{ name: 'index'}">
+          <h1><img src="../img/pony.png" width="70px" class="d-inline-block align-top" alt="BV">TooYobe</h1>
+        </router-link>
       </b-navbar-brand>
       <b-collapse is-nav id="nav_collapse">
         <!-- SEARCH -->
         <b-navbar-nav class="ml-auto">
           <b-nav-form @submit="onSubmit">
             <b-form-input id="searchbar" size="sm" v-model="form.search" required type="text" placeholder="Введите запрос" />
-              <b-button size="sm" type="submit">Search</b-button>
+              <b-button size="sm" variant="outline-danger" type="submit">Search</b-button>
           </b-nav-form>
         </b-navbar-nav>
       </b-collapse>
@@ -68,6 +70,7 @@
   h1,
   h2 {
     font-weight: normal;
+    margin-bottom: 0px !important;
   }
 
   ul {
@@ -85,6 +88,11 @@
   }
 
   .bg-danger {
-    background-color: darkred !important;
+    background-color: rgba(0, 0, 0, 0.748) !important;
+  }
+
+  .navbar-brand{
+    margin-bottom: 0px !important;
+    padding-bottom: 0px;
   }
 </style>
